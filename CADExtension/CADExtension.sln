@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADExtension", "CADExtension.csproj", "{6579BCDB-2DF7-48B0-9DCB-5AFE1691C183}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryLib", "..\GeometryLib\GeometryLib.csproj", "{C44CB70A-4989-4A06-9375-7ED46D5DCDCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputUI", "..\InputUI\InputUI.csproj", "{44D5F353-89DD-4C73-B41F-C20AE6E18F95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6579BCDB-2DF7-48B0-9DCB-5AFE1691C183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6579BCDB-2DF7-48B0-9DCB-5AFE1691C183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6579BCDB-2DF7-48B0-9DCB-5AFE1691C183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6579BCDB-2DF7-48B0-9DCB-5AFE1691C183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C44CB70A-4989-4A06-9375-7ED46D5DCDCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C44CB70A-4989-4A06-9375-7ED46D5DCDCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C44CB70A-4989-4A06-9375-7ED46D5DCDCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C44CB70A-4989-4A06-9375-7ED46D5DCDCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D5F353-89DD-4C73-B41F-C20AE6E18F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D5F353-89DD-4C73-B41F-C20AE6E18F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D5F353-89DD-4C73-B41F-C20AE6E18F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D5F353-89DD-4C73-B41F-C20AE6E18F95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4183A5A-53AF-4DD7-9417-C40D5FF57119}
+	EndGlobalSection
+EndGlobal
