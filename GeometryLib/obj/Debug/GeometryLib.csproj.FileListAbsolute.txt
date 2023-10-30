@@ -6,3 +6,4 @@ C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLi
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.csproj.CopyComplete
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.pdb
+C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.csproj.AssemblyReference.cache

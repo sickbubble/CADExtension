@@ -46,15 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmDrawColumnInput.cs">
+    <Compile Include="DrawColumn\frmDrawColumnInput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDrawColumnInput.Designer.cs">
+    <Compile Include="DrawColumn\frmDrawColumnInput.Designer.cs">
       <DependentUpon>frmDrawColumnInput.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmDrawColumnInput.resx">
+    <EmbeddedResource Include="DrawColumn\frmDrawColumnInput.resx">
       <DependentUpon>frmDrawColumnInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

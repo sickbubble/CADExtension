@@ -25,5 +25,13 @@ namespace GeometryLib.Entities
 
         public double X { get => _X; set => _X = value; }
         public double Y { get => _Y; set => _Y = value; }
+
+        public double GetDistanceTo(BrkVertex brkVertex)
+        {
+            double dx = brkVertex.X - this.X;
+            double dy = brkVertex.Y - this.Y;
+
+            return Math.Sqrt(dx * dx + dy * dy);
+        }
     }
 }

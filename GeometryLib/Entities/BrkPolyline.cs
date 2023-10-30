@@ -39,7 +39,7 @@ namespace GeometryLib.Entities
         {
             if (_Count == _Vertexes.Length)
             {
-                Array.Resize(ref _Vertexes, _Vertexes.Length * 2); // Resize array if needed
+                Array.Resize(ref _Vertexes, _Vertexes.Length +1 ); // Resize array if needed
             }
 
             _Vertexes[_Count++] = item;
@@ -149,7 +149,7 @@ namespace GeometryLib.Entities
 
             if (_Count == _Vertexes.Length)
             {
-                Array.Resize(ref _Vertexes, _Vertexes.Length * 2); // Resize array if needed
+                Array.Resize(ref _Vertexes, _Vertexes.Length +1); // Resize array if needed
             }
 
             Array.Copy(_Vertexes, index, _Vertexes, index + 1, _Count - index);
@@ -224,20 +224,21 @@ namespace GeometryLib.Entities
         {
             var ret = new List<Tuple<BrkVertex, int, int>>();
 
-            for (int i = 0; i < _Vertexes.Length - 1; i++)
+            for (int i = 0; i < this.Count - 1; i++)
             {
                 for (int j = 0; j < pl2.Count - 1; j++)
                 {
-                    var p1 = _Vertexes[i];
-                    var p2 = _Vertexes[i + 1];
+                    var p1 = this[i];
+                    var p2 = this[i + 1];
                     var p3 = pl2[j];
                     var p4 = pl2[j + 1];
+
 
                     var intersectVtx = GeometryOps.SegmentsIntersect(p1, p2, p3, p4);
 
                     if (intersectVtx != null)
                     {
-                        ret.Add(new Tuple<BrkVertex, int, int>(new BrkVertex(intersectVtx.X, intersectVtx.Y), i + 1, j + 1));
+                        ret.Add(new Tuple<BrkVertex, int, int>(new BrkVertex(intersectVtx.X, intersectVtx.Y), i+1, j+1));
                     }
                 }
             }
@@ -258,8 +259,11 @@ namespace GeometryLib.Entities
             for (int i = 0; i < polyLine.NumberOfVertices; i++)
             {
                 var pt = polyLine.GetPoint2dAt(i);
-
+                if (pt !=null)
+                {
                 ret.Add(new BrkVertex(pt.X, pt.Y));
+                }
+
             }
 
             return ret;

@@ -9,40 +9,29 @@ namespace GeometryLib
 {
     public static class GeometryOps
     {
+        /// <summary>
+        /// formulation is taken from wikipedia
+        /// https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection#Given_two_points_on_each_line
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <param name="p3"></param>
+        /// <param name="p4"></param>
+        /// <returns></returns>
         public static BrkVertex SegmentsIntersect(BrkVertex p1, BrkVertex p2, BrkVertex p3, BrkVertex p4)
         {
             BrkVertex ret = null;
 
-            double A1 = p2.X - p1.X;
-            double B1 = p4.X - p3.X;
-            double C1 = p1.X - p3.X;
 
-            double A2 = p2.Y - p1.Y;
-            double B2 = p4.Y - p3.Y;
-            double C2 = p1.Y - p3.Y;
+            var xNum = (p1.X * p2.Y - p1.Y * p2.X) * (p3.X - p4.X) - (p1.X - p2.X) * (p3.X * p4.Y - p3.Y * p4.X);
+            var yNum = (p1.X * p2.Y - p1.Y * p2.X) * (p3.Y - p4.Y) - (p1.Y - p2.Y) * (p3.X * p4.Y - p3.Y * p4.X);
+            var denom = (p1.X - p2.X) * (p3.Y - p4.Y) - (p1.Y - p2.Y) * (p3.X - p4.X);
 
-            double det = A1 * C2 - A2 * C1;
-
-
-            if (Math.Abs(det) > 0)
+            if (denom != 0)
             {
-                det = (B2 * B1 - C1 * C2) / det;
-                var intX = p1.X + det * A1;
-                var intY = p1.Y + det * A2;
-                ret = new BrkVertex(intX, intY);
-                //if (!(IsPointOnSegment(p1, p2, ret) && IsPointOnSegment(p3, p4, ret)))
-                //    ret = null;
-            }
-            else // Lines are parallel
-            {
-                if ((A1 * -B2) == (-C1 * A2))
-                {
-                    ret = new BrkVertex(p3.X, p3.Y);
-                }
-                else
-                {
-                    ret = new BrkVertex(p4.X, p4.Y);
-                }
+                ret = new BrkVertex(xNum / denom, yNum/ denom);
+                bool isOnBothSegment = IsPointOnSegment(p1, p2, ret) && IsPointOnSegment(p3, p4, ret);
+                if (!isOnBothSegment) ret = null;
             }
 
 
