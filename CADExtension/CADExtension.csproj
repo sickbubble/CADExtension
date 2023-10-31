@@ -58,6 +58,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DrawingLib\DrawingLib.csproj">
+      <Project>{10740287-BD1F-4838-8B8D-420539A88DD5}</Project>
+      <Name>DrawingLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GeometryLib\GeometryLib.csproj">
       <Project>{C44CB70A-4989-4A06-9375-7ED46D5DCDCD}</Project>
       <Name>GeometryLib</Name>

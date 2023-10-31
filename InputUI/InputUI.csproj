@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DrawingLib\DrawingLib.csproj">
+      <Project>{10740287-bd1f-4838-8b8d-420539a88dd5}</Project>
+      <Name>DrawingLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GeometryLib\GeometryLib.csproj">
       <Project>{C44CB70A-4989-4A06-9375-7ED46D5DCDCD}</Project>
       <Name>GeometryLib</Name>

@@ -40,3 +40,5 @@ C:\Users\Burak T\Desktop\Git Repos\CADExtension\CADExtension\obj\Debug\CADExtens
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\CADExtension\obj\Debug\CADExtension.csproj.CopyComplete
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\CADExtension\obj\Debug\CADExtension.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\CADExtension\obj\Debug\CADExtension.pdb
+C:\Users\Burak T\Desktop\Git Repos\CADExtension\CADExtension\bin\Debug\DrawingLib.dll
+C:\Users\Burak T\Desktop\Git Repos\CADExtension\CADExtension\bin\Debug\DrawingLib.pdb

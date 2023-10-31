@@ -62,13 +62,14 @@ namespace InputUI
             this.lblSectionWidth.Location = new System.Drawing.Point(24, 42);
             this.lblSectionWidth.Name = "lblSectionWidth";
             this.lblSectionWidth.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblSectionWidth.Size = new System.Drawing.Size(72, 13);
+            this.lblSectionWidth.Size = new System.Drawing.Size(95, 13);
             this.lblSectionWidth.TabIndex = 1;
-            this.lblSectionWidth.Text = "Kesit Genişliği";
+            this.lblSectionWidth.Text = "Kesit Genişliği (cm)";
             // 
             // numSectionWidth
             // 
-            this.numSectionWidth.Location = new System.Drawing.Point(105, 35);
+            this.numSectionWidth.DecimalPlaces = 1;
+            this.numSectionWidth.Location = new System.Drawing.Point(141, 35);
             this.numSectionWidth.Margin = new System.Windows.Forms.Padding(6);
             this.numSectionWidth.Maximum = new decimal(new int[] {
             10000,
@@ -76,12 +77,12 @@ namespace InputUI
             0,
             0});
             this.numSectionWidth.Name = "numSectionWidth";
-            this.numSectionWidth.Size = new System.Drawing.Size(120, 20);
+            this.numSectionWidth.Size = new System.Drawing.Size(84, 20);
             this.numSectionWidth.TabIndex = 2;
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(414, 202);
+            this.btnOK.Location = new System.Drawing.Point(417, 202);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -90,7 +91,8 @@ namespace InputUI
             // 
             // numSectionHeight
             // 
-            this.numSectionHeight.Location = new System.Drawing.Point(105, 67);
+            this.numSectionHeight.DecimalPlaces = 1;
+            this.numSectionHeight.Location = new System.Drawing.Point(141, 67);
             this.numSectionHeight.Margin = new System.Windows.Forms.Padding(6);
             this.numSectionHeight.Maximum = new decimal(new int[] {
             10000,
@@ -98,22 +100,23 @@ namespace InputUI
             0,
             0});
             this.numSectionHeight.Name = "numSectionHeight";
-            this.numSectionHeight.Size = new System.Drawing.Size(120, 20);
+            this.numSectionHeight.Size = new System.Drawing.Size(84, 20);
             this.numSectionHeight.TabIndex = 5;
             // 
             // lblSectionHeight
             // 
             this.lblSectionHeight.AutoSize = true;
-            this.lblSectionHeight.Location = new System.Drawing.Point(12, 74);
+            this.lblSectionHeight.Location = new System.Drawing.Point(15, 74);
             this.lblSectionHeight.Name = "lblSectionHeight";
             this.lblSectionHeight.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblSectionHeight.Size = new System.Drawing.Size(84, 13);
+            this.lblSectionHeight.Size = new System.Drawing.Size(104, 13);
             this.lblSectionHeight.TabIndex = 4;
-            this.lblSectionHeight.Text = "Kesit Yüksekliği:";
+            this.lblSectionHeight.Text = "Kesit Yüksekliği (cm)";
             // 
             // numColumnElevation
             // 
-            this.numColumnElevation.Location = new System.Drawing.Point(105, 99);
+            this.numColumnElevation.DecimalPlaces = 1;
+            this.numColumnElevation.Location = new System.Drawing.Point(141, 99);
             this.numColumnElevation.Margin = new System.Windows.Forms.Padding(6);
             this.numColumnElevation.Maximum = new decimal(new int[] {
             10000,
@@ -121,7 +124,7 @@ namespace InputUI
             0,
             0});
             this.numColumnElevation.Name = "numColumnElevation";
-            this.numColumnElevation.Size = new System.Drawing.Size(120, 20);
+            this.numColumnElevation.Size = new System.Drawing.Size(84, 20);
             this.numColumnElevation.TabIndex = 7;
             // 
             // lblColumnElevation
@@ -130,13 +133,14 @@ namespace InputUI
             this.lblColumnElevation.Location = new System.Drawing.Point(11, 106);
             this.lblColumnElevation.Name = "lblColumnElevation";
             this.lblColumnElevation.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblColumnElevation.Size = new System.Drawing.Size(85, 13);
+            this.lblColumnElevation.Size = new System.Drawing.Size(108, 13);
             this.lblColumnElevation.TabIndex = 6;
-            this.lblColumnElevation.Text = "Kolon Yüksekliği";
+            this.lblColumnElevation.Text = "Kolon Yüksekliği (cm)";
             // 
             // numConcCover
             // 
-            this.numConcCover.Location = new System.Drawing.Point(105, 131);
+            this.numConcCover.DecimalPlaces = 1;
+            this.numConcCover.Location = new System.Drawing.Point(141, 131);
             this.numConcCover.Margin = new System.Windows.Forms.Padding(6);
             this.numConcCover.Maximum = new decimal(new int[] {
             10000,
@@ -144,22 +148,23 @@ namespace InputUI
             0,
             0});
             this.numConcCover.Name = "numConcCover";
-            this.numConcCover.Size = new System.Drawing.Size(120, 20);
+            this.numConcCover.Size = new System.Drawing.Size(84, 20);
             this.numConcCover.TabIndex = 9;
             // 
             // lblConcCover
             // 
             this.lblConcCover.AutoSize = true;
-            this.lblConcCover.Location = new System.Drawing.Point(49, 138);
+            this.lblConcCover.Location = new System.Drawing.Point(52, 138);
             this.lblConcCover.Name = "lblConcCover";
             this.lblConcCover.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblConcCover.Size = new System.Drawing.Size(47, 13);
+            this.lblConcCover.Size = new System.Drawing.Size(67, 13);
             this.lblConcCover.TabIndex = 8;
-            this.lblConcCover.Text = "Paspayı:";
+            this.lblConcCover.Text = "Paspayı (cm)";
             // 
             // numLinkDenseSpacing
             // 
-            this.numLinkDenseSpacing.Location = new System.Drawing.Point(369, 131);
+            this.numLinkDenseSpacing.DecimalPlaces = 1;
+            this.numLinkDenseSpacing.Location = new System.Drawing.Point(405, 131);
             this.numLinkDenseSpacing.Margin = new System.Windows.Forms.Padding(6);
             this.numLinkDenseSpacing.Maximum = new decimal(new int[] {
             10000,
@@ -167,7 +172,7 @@ namespace InputUI
             0,
             0});
             this.numLinkDenseSpacing.Name = "numLinkDenseSpacing";
-            this.numLinkDenseSpacing.Size = new System.Drawing.Size(120, 20);
+            this.numLinkDenseSpacing.Size = new System.Drawing.Size(84, 20);
             this.numLinkDenseSpacing.TabIndex = 17;
             this.numLinkDenseSpacing.Value = new decimal(new int[] {
             7,
@@ -181,13 +186,14 @@ namespace InputUI
             this.lblLinkDenseSpacing.Location = new System.Drawing.Point(274, 138);
             this.lblLinkDenseSpacing.Name = "lblLinkDenseSpacing";
             this.lblLinkDenseSpacing.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblLinkDenseSpacing.Size = new System.Drawing.Size(86, 13);
+            this.lblLinkDenseSpacing.Size = new System.Drawing.Size(106, 13);
             this.lblLinkDenseSpacing.TabIndex = 16;
-            this.lblLinkDenseSpacing.Text = "Etriye Sık. Aralık:";
+            this.lblLinkDenseSpacing.Text = "Etriye Sık. Aralık (cm)";
             // 
             // numLinkSpacing
             // 
-            this.numLinkSpacing.Location = new System.Drawing.Point(369, 99);
+            this.numLinkSpacing.DecimalPlaces = 1;
+            this.numLinkSpacing.Location = new System.Drawing.Point(405, 99);
             this.numLinkSpacing.Margin = new System.Windows.Forms.Padding(6);
             this.numLinkSpacing.Maximum = new decimal(new int[] {
             10000,
@@ -195,7 +201,7 @@ namespace InputUI
             0,
             0});
             this.numLinkSpacing.Name = "numLinkSpacing";
-            this.numLinkSpacing.Size = new System.Drawing.Size(120, 20);
+            this.numLinkSpacing.Size = new System.Drawing.Size(84, 20);
             this.numLinkSpacing.TabIndex = 15;
             // 
             // lblLinkSpacing
@@ -204,13 +210,14 @@ namespace InputUI
             this.lblLinkSpacing.Location = new System.Drawing.Point(295, 106);
             this.lblLinkSpacing.Name = "lblLinkSpacing";
             this.lblLinkSpacing.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblLinkSpacing.Size = new System.Drawing.Size(65, 13);
+            this.lblLinkSpacing.Size = new System.Drawing.Size(85, 13);
             this.lblLinkSpacing.TabIndex = 14;
-            this.lblLinkSpacing.Text = "Etriye Aralık:";
+            this.lblLinkSpacing.Text = "Etriye Aralık (cm)";
             // 
             // numLinkDiameter
             // 
-            this.numLinkDiameter.Location = new System.Drawing.Point(369, 67);
+            this.numLinkDiameter.DecimalPlaces = 1;
+            this.numLinkDiameter.Location = new System.Drawing.Point(405, 67);
             this.numLinkDiameter.Margin = new System.Windows.Forms.Padding(6);
             this.numLinkDiameter.Maximum = new decimal(new int[] {
             10000,
@@ -218,7 +225,7 @@ namespace InputUI
             0,
             0});
             this.numLinkDiameter.Name = "numLinkDiameter";
-            this.numLinkDiameter.Size = new System.Drawing.Size(120, 20);
+            this.numLinkDiameter.Size = new System.Drawing.Size(84, 20);
             this.numLinkDiameter.TabIndex = 13;
             // 
             // lblLinkDiameter
@@ -227,13 +234,14 @@ namespace InputUI
             this.lblLinkDiameter.Location = new System.Drawing.Point(269, 74);
             this.lblLinkDiameter.Name = "lblLinkDiameter";
             this.lblLinkDiameter.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblLinkDiameter.Size = new System.Drawing.Size(91, 13);
+            this.lblLinkDiameter.Size = new System.Drawing.Size(116, 13);
             this.lblLinkDiameter.TabIndex = 12;
-            this.lblLinkDiameter.Text = "Etriye Donatı Çapı";
+            this.lblLinkDiameter.Text = "Etriye Donatı Çapı (mm)";
             // 
             // numBarDiameter
             // 
-            this.numBarDiameter.Location = new System.Drawing.Point(369, 35);
+            this.numBarDiameter.DecimalPlaces = 1;
+            this.numBarDiameter.Location = new System.Drawing.Point(405, 35);
             this.numBarDiameter.Margin = new System.Windows.Forms.Padding(6);
             this.numBarDiameter.Maximum = new decimal(new int[] {
             10000,
@@ -241,7 +249,7 @@ namespace InputUI
             0,
             0});
             this.numBarDiameter.Name = "numBarDiameter";
-            this.numBarDiameter.Size = new System.Drawing.Size(120, 20);
+            this.numBarDiameter.Size = new System.Drawing.Size(84, 20);
             this.numBarDiameter.TabIndex = 11;
             // 
             // lblBarDiameter
@@ -250,9 +258,9 @@ namespace InputUI
             this.lblBarDiameter.Location = new System.Drawing.Point(259, 42);
             this.lblBarDiameter.Name = "lblBarDiameter";
             this.lblBarDiameter.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblBarDiameter.Size = new System.Drawing.Size(101, 13);
+            this.lblBarDiameter.Size = new System.Drawing.Size(126, 13);
             this.lblBarDiameter.TabIndex = 10;
-            this.lblBarDiameter.Text = "Boyuna Donatı Çapı";
+            this.lblBarDiameter.Text = "Boyuna Donatı Çapı (mm)";
             // 
             // frmDrawColumnInput
             // 

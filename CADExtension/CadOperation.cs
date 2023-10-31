@@ -15,6 +15,9 @@ namespace CADExtension
 {
     public class CadOperation
     {
+        /// <summary>
+        /// Draws simple column application plan
+        /// </summary>
         [CommandMethod("DrawColumn")]
         public void DrawColumnCommand()
         {
@@ -22,13 +25,12 @@ namespace CADExtension
             Database db = doc.Database;
             Editor ed = doc.Editor;
 
-            var drawingFactory = new ColumnDrawingFactory();
-
             PromptPointResult result = ed.GetPoint("\nEnter base point for column: ");
 
             if (result.Status == PromptStatus.OK)
             {
                 Transaction tr = db.TransactionManager.StartTransaction();
+
                 using (tr)
                 {
                     BlockTable bt = (BlockTable)tr.GetObject(db.BlockTableId, OpenMode.ForRead, false);
@@ -38,25 +40,32 @@ namespace CADExtension
                     frmDrawColumnInput frm = new frmDrawColumnInput();
                     frm.ShowDialog();
 
-                    var inputArgs = frm.InputArgs;
-                    // Draw column using the provided parameters
-                    drawingFactory.DrawColumn(btr, result.Value, inputArgs);
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
 
-                    // Update Screen
-                    Application.DocumentManager.MdiActiveDocument.Editor.UpdateScreen();
+                        var inputArgs = frm.InputArgs;
+
+                        // Draw column using the provided parameters
+                        var drawingFactory = new ColumnDrawer(tr, btr);
+                        drawingFactory.DrawColumn(btr, result.Value, inputArgs);
+
+                        // Update Screen
+                        Application.DocumentManager.MdiActiveDocument.Editor.UpdateScreen();
+                    }
 
                     tr.Commit();
                 }
             }
         }
 
-
+        /// <summary>
+        ///  Finds current polylines intersection points and adds new vertex
+        /// </summary>
         [CommandMethod("AddIntersectionPointToPolyline")]
         public void AddIntersectionPointToPolyline()
         {
             Document doc = Application.DocumentManager.MdiActiveDocument;
             Database db = doc.Database;
-
             // Start a transaction
             using (Transaction tr = db.TransactionManager.StartTransaction())
             {
@@ -71,21 +80,21 @@ namespace CADExtension
                 foreach (ObjectId entId in btr)
                 {
                     Entity ent = (Entity)tr.GetObject(entId, OpenMode.ForWrite);
-
                     if (ent is Polyline) polyLines.Add((Polyline)ent);
                 }
 
+
                 var customPolyLines = new Dictionary<int, BrkPolyline>();
+                // Convert to BrkPolyline
+                for (int i = 0; i < polyLines.Count; i++) customPolyLines.Add(i, FromACPolyline(polyLines[i]));
 
 
-                for (int i = 0; i < polyLines.Count; i++) customPolyLines.Add(i, BrkPolyline.FromACPolyline(polyLines[i]));
-                
-
-                var polyToUpdate = new Dictionary<int,BrkPolyline>();
+                var polyToUpdate = new Dictionary<int, BrkPolyline>();
 
                 var updateIndex = new Dictionary<int, int>();
 
 
+                // Traverse polylines for intersections
                 for (int i = 0; i < customPolyLines.Count; i++)
                 {
                     for (int j = 1; j < customPolyLines.Count; j++)
@@ -96,9 +105,6 @@ namespace CADExtension
 
                         if (intersectionPoints == null || intersectionPoints.Count == 0) continue;
 
-                        intersectionPoints.OrderBy(x => -x.Item1.X);
-
-
                         foreach (var vtx in intersectionPoints)
                         {
                             var firtPolyIndex = vtx.Item2;
@@ -106,56 +112,42 @@ namespace CADExtension
                             var pt = vtx.Item1;
 
 
-                            //var index = CalculateInsertionIndex(customPolyLines[i], pt);
-                            //if (!polyToUpdate.ContainsKey(i))
-                            //{
-                            //    customPolyLines[i].Insert(index, new BrkVertex(pt.X, pt.Y));
-                            //    polyToUpdate.Add(i, customPolyLines[i]);
-                            //}
-                            //else
-                            //{
-                            //    polyToUpdate[i].Insert(index, new BrkVertex(pt.X, pt.Y));
-                            //}
-
-                            //index = CalculateInsertionIndex(customPolyLines[j], pt);
-                            //if (!polyToUpdate.ContainsKey(j))
-                            //{
-                            //    customPolyLines[j].Insert(index, new BrkVertex(pt.X, pt.Y));
-                            //    polyToUpdate.Add(j, customPolyLines[j]);
-                            //}
-                            //else
-                            //{
-                            //    polyToUpdate[j].Insert(index, new BrkVertex(pt.X, pt.Y));
-                            //}
-
-                            //customPolyLines[j].Insert(secondPolyIndex, new BrkVertex(pt.X, pt.Y));
-                            //if (!polyToUpdate.ContainsKey(j)) polyToUpdate.Add(j, customPolyLines[j]);
+                            //var index = firtPolyIndex;
+                            if (!polyToUpdate.ContainsKey(i)) polyToUpdate.Add(i, customPolyLines[i]);
 
 
+                            var index = BrkPolyline.CalculateInsertionIndex(polyToUpdate[i], pt);
+                            polyToUpdate[i].Insert(index, new BrkVertex(pt.X, pt.Y));
 
-                            var pt2d = new Point2d(pt.X, pt.Y);
 
-                            var indexindex = CalculateInsertionIndex(polyLines[i], pt2d);
-                            polyLines[i].AddVertexAt(indexindex, new Point2d(pt.X, pt.Y), 0, 0, 0);
+                            if (!polyToUpdate.ContainsKey(j)) polyToUpdate.Add(j, customPolyLines[j]);
 
-                            indexindex = CalculateInsertionIndex(polyLines[j], pt2d);
-                            polyLines[j].AddVertexAt(indexindex, new Point2d(pt.X, pt.Y), 0, 0, 0);
+                            index = BrkPolyline.CalculateInsertionIndex(polyToUpdate[j], pt);
+                            polyToUpdate[j].Insert(index, new BrkVertex(pt.X, pt.Y));
+
                         }
 
                     }
                 }
 
-                //foreach (var poly in polyToUpdate)
-                //{
-                //    var newPoly = new Polyline(poly.Value.Count);
+                // Remove old polylines
+                foreach (var oldPoly in polyLines) oldPoly.Erase();
 
-                //    for (int i = 0; i < poly.Value.Count; i++)
-                //    {
-                //        var curVertex = poly.Value[i];
-                //        newPoly.AddVertexAt(0, new Point2d(curVertex.X, curVertex.Y), 0, 0, 0);
-                //    }
-                //    btr.AppendEntity(newPoly);
-                //}
+                // Create and add new Autocad Polylines
+                foreach (var poly in polyToUpdate)
+                {
+                    var newPoly = new Polyline(poly.Value.Count);
+
+                    for (int i = 0; i < poly.Value.Count; i++)
+                    {
+                        var curVertex = poly.Value[i];
+                        newPoly.AddVertexAt(0, new Point2d(curVertex.X, curVertex.Y), 0, 0, 0);
+                    }
+
+                    btr.AppendEntity(newPoly);
+                    tr.AddNewlyCreatedDBObject(newPoly, true);
+
+                }
 
                 // Update Screen
                 Application.DocumentManager.MdiActiveDocument.Editor.UpdateScreen();
@@ -165,50 +157,21 @@ namespace CADExtension
             }
         }
 
-        private int CalculateInsertionIndex(Polyline polyline, Point2d newVertex)
+        public BrkPolyline FromACPolyline(Polyline polyLine)
         {
-            double minDistance = double.MaxValue;
-            int minIndex = -1;
-
-            for (int i = 0; i < polyline.NumberOfVertices ; i++)
+            var ret = new BrkPolyline();
+            for (int i = 0; i < polyLine.NumberOfVertices; i++)
             {
-                Point2d vertex1 = polyline.GetPoint2dAt(i);
-
-                double distance = newVertex.GetDistanceTo(vertex1);
-
-                if (distance < minDistance)
+                var pt = polyLine.GetPoint2dAt(i);
+                if (pt != null)
                 {
-                    minDistance = distance;
-                    minIndex = i + 1; // Add 1 because we want to insert after the nearest vertex
-                }
-                
-            }
-            return minIndex;
-        }
-
-        private int CalculateInsertionIndex(BrkPolyline polyline, BrkVertex newVertex)
-        {
-            double minDistance = double.MaxValue;
-            int minIndex = -1;
-
-            for (int i = 0; i < polyline.Count; i++)
-            {
-
-                double distance = newVertex.GetDistanceTo(polyline[i]);
-
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    minIndex = i + 1; // Add 1 because we want to insert after the nearest vertex
+                    ret.Add(new BrkVertex(pt.X, pt.Y));
                 }
 
             }
-            return minIndex;
+
+            return ret;
         }
-
-
-
-
 
     }
 }

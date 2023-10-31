@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="acdbmgd">
-      <HintPath>D:\AutoCAD 2024\acdbmgd.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,10 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ColumnDrawInputArgs.cs" />
     <Compile Include="Entities\BrkPolyline.cs" />
     <Compile Include="Entities\BrkVertex.cs" />
-    <Compile Include="Factories\ColumnDrawingFactory.cs" />
     <Compile Include="GeometryOps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

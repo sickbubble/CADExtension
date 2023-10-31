@@ -13,3 +13,5 @@ C:\Users\Burak T\Desktop\Git Repos\CADExtension\InputUI\obj\Debug\InputUI.csproj
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\InputUI\obj\Debug\InputUI.csproj.CopyComplete
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\InputUI\obj\Debug\InputUI.exe
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\InputUI\obj\Debug\InputUI.pdb
+C:\Users\Burak T\Desktop\Git Repos\CADExtension\InputUI\bin\Debug\DrawingLib.dll
+C:\Users\Burak T\Desktop\Git Repos\CADExtension\InputUI\bin\Debug\DrawingLib.pdb

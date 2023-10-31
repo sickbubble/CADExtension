@@ -33,5 +33,27 @@ namespace GeometryLib.Entities
 
             return Math.Sqrt(dx * dx + dy * dy);
         }
+
+        public bool IsPointOnSegment(BrkVertex p1, BrkVertex p2) 
+        {
+            double crossProduct = (this.Y - p1.Y) * (p2.X - p1.X) - (this.X - p1.X) * (p2.Y - p1.Y);
+
+            if (Math.Abs(crossProduct) > 0.00001)
+                return false;
+
+            double dotProduct = (this.X - p1.X) * (p2.X - p1.X) + (this.Y - p1.Y) * (p2.Y - p1.Y);
+
+            if (dotProduct < 0)
+                return false;
+
+            double squaredLengthBA = (p2.X - p1.X) * (p2.X - p1.X) + (p2.Y - p1.Y) * (p2.Y - p1.Y);
+
+            if (dotProduct > squaredLengthBA)
+                return false;
+
+            return true;
+
+        }
+        
     }
 }

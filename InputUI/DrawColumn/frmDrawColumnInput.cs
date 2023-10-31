@@ -39,6 +39,7 @@ namespace InputUI
         #region Private Methods
         private void InıtData()
         {
+            _Changed = true;
             _InputArgs = new ColumnDrawInputArgs();
         }
 
@@ -50,10 +51,10 @@ namespace InputUI
             numConcCover.Value = (decimal)2.5;
 
 
-            numBarDiameter.Value = (decimal)1;
-            numLinkDiameter.Value = (decimal)1;
-            numLinkSpacing.Value = (decimal)1;
-            numLinkDenseSpacing.Value = (decimal)1;
+            numBarDiameter.Value = 16;
+            numLinkDiameter.Value = 8;
+            numLinkSpacing.Value = 10;
+            numLinkDenseSpacing.Value = 5;
         }
 
         private void SubscribeToEvents()
@@ -83,9 +84,9 @@ namespace InputUI
                 _InputArgs.ColumnElevation = Convert.ToDouble(numColumnElevation.Value);
                 _InputArgs.ConcreteCover = Convert.ToDouble(numConcCover.Value);
                 _InputArgs.LinkDenseSpacing = Convert.ToDouble(numLinkDenseSpacing.Value);
-                _InputArgs.LinkDiameter = Convert.ToDouble(numLinkDiameter.Value);
                 _InputArgs.LinkSpacing = Convert.ToDouble(numLinkSpacing.Value);
-                _InputArgs.LongBarDiameter = Convert.ToDouble(numBarDiameter.Value);
+                _InputArgs.LinkDiameter = 0.1 * Convert.ToDouble(numLinkDiameter.Value);
+                _InputArgs.LongBarDiameter = 0.1 * Convert.ToDouble(numBarDiameter.Value);
             }
 
         }

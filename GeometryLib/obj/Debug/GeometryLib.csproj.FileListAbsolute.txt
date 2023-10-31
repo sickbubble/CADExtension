@@ -1,9 +1,6 @@
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\bin\Debug\GeometryLib.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\bin\Debug\GeometryLib.pdb
-C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\bin\Debug\acdbmgd.dll
-C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\bin\Debug\en-US\acdbmgd.resources.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.csproj.CoreCompileInputs.cache
-C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.csproj.CopyComplete
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.pdb
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\GeometryLib\obj\Debug\GeometryLib.csproj.AssemblyReference.cache

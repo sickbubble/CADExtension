@@ -1,6 +1,4 @@
-﻿using Autodesk.AutoCAD.DatabaseServices;
-using Autodesk.AutoCAD.Geometry;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +37,7 @@ namespace GeometryLib.Entities
         {
             if (_Count == _Vertexes.Length)
             {
-                Array.Resize(ref _Vertexes, _Vertexes.Length +1 ); // Resize array if needed
+                Array.Resize(ref _Vertexes, _Vertexes.Length + 1); // Resize array if needed
             }
 
             _Vertexes[_Count++] = item;
@@ -149,7 +147,7 @@ namespace GeometryLib.Entities
 
             if (_Count == _Vertexes.Length)
             {
-                Array.Resize(ref _Vertexes, _Vertexes.Length +1); // Resize array if needed
+                Array.Resize(ref _Vertexes, _Vertexes.Length + 1); // Resize array if needed
             }
 
             Array.Copy(_Vertexes, index, _Vertexes, index + 1, _Count - index);
@@ -226,19 +224,18 @@ namespace GeometryLib.Entities
 
             for (int i = 0; i < this.Count - 1; i++)
             {
+                var p1 = this[i];
+                var p2 = this[i + 1];
                 for (int j = 0; j < pl2.Count - 1; j++)
                 {
-                    var p1 = this[i];
-                    var p2 = this[i + 1];
                     var p3 = pl2[j];
                     var p4 = pl2[j + 1];
-
-
                     var intersectVtx = GeometryOps.SegmentsIntersect(p1, p2, p3, p4);
 
                     if (intersectVtx != null)
                     {
-                        ret.Add(new Tuple<BrkVertex, int, int>(new BrkVertex(intersectVtx.X, intersectVtx.Y), i+1, j+1));
+                        ret.Add(new Tuple<BrkVertex, int, int>(new BrkVertex(intersectVtx.X, intersectVtx.Y), i + 1, j + 1));
+                        //ret.Add(new Tuple<BrkVertex, int, int>(new BrkVertex(intersectVtx.X, intersectVtx.Y), index1, index2));
                     }
                 }
             }
@@ -246,30 +243,25 @@ namespace GeometryLib.Entities
 
         }
 
-
-
-
-        #endregion
-
-        #region Convert Methods
-
-        public static BrkPolyline FromACPolyline(Polyline polyLine)
+        public static int CalculateInsertionIndex(BrkPolyline polyline, BrkVertex newVertex)
         {
-            var ret = new BrkPolyline();
-            for (int i = 0; i < polyLine.NumberOfVertices; i++)
+
+            for (int i = 0; i < polyline.Count-1; i++)
             {
-                var pt = polyLine.GetPoint2dAt(i);
-                if (pt !=null)
+                var p1 = polyline[i];
+                var p2 = polyline[i+1];
+
+                if (newVertex.IsPointOnSegment(p1,p2))
                 {
-                ret.Add(new BrkVertex(pt.X, pt.Y));
+                    return i + 1;
                 }
-
             }
-
-            return ret;
+            return -1;
         }
 
         #endregion
+
+
 
 
 
