@@ -34,4 +34,3 @@ C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Release\DrawingLi
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Release\DrawingLib.csproj.CopyComplete
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Release\DrawingLib.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Release\DrawingLib.pdb
-C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Release\DrawingLib.csproj.AssemblyReference.cache
