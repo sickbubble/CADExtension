@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeometryLib.Factories
+namespace DrawingLib.Factories
 {
     public class ColumnDrawer
     {
