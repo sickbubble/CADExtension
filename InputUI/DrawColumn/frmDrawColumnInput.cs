@@ -1,4 +1,5 @@
-﻿using GeometryLib;
+﻿using DrawingLib;
+using GeometryLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,18 +24,13 @@ namespace InputUI
 
 
         #region Private Fields
-
         private bool _Changed;
         private ColumnDrawInputArgs _InputArgs;
-
-
         #endregion
-
 
         #region Public Properties
         public ColumnDrawInputArgs InputArgs { get => _InputArgs; set => _InputArgs = value; }
         #endregion
-
 
         #region Private Methods
         private void InıtData()
@@ -42,7 +38,6 @@ namespace InputUI
             _Changed = true;
             _InputArgs = new ColumnDrawInputArgs();
         }
-
         private void PrepareUI()
         {
             numSectionWidth.Value = 30;
@@ -56,7 +51,6 @@ namespace InputUI
             numLinkSpacing.Value = 10;
             numLinkDenseSpacing.Value = 5;
         }
-
         private void SubscribeToEvents()
         {
             numSectionWidth.ValueChanged += ValueChanged;
@@ -67,14 +61,8 @@ namespace InputUI
             numBarDiameter.ValueChanged += ValueChanged;
             numColumnElevation.ValueChanged += ValueChanged;
             numLinkDenseSpacing.ValueChanged += ValueChanged;
-
-
-
             btnOK.Click += btnOK_Click;
         }
-
-
-
         private void ApplyChanges()
         {
             if (_Changed)
@@ -90,7 +78,6 @@ namespace InputUI
             }
 
         }
-
 
         #endregion
 

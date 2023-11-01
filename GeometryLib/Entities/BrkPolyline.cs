@@ -92,7 +92,6 @@ namespace GeometryLib.Entities
 
         #region IEnumerable Implementation
 
-
         public IEnumerator<BrkVertex> GetEnumerator()
         {
             for (int i = 0; i < _Count; i++)

@@ -7,24 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeometryLib.Factories
+namespace DrawingLib.Factories
 {
     public class ColumnDrawer
     {
+        #region Ctor
         public ColumnDrawer()
         {
 
         }
-
         public ColumnDrawer(Transaction tr, BlockTableRecord btr)
         {
             _TR = tr;
             _BTR = btr;
 
         }
+        #endregion
 
+        #region Private Fields
         private Transaction _TR;
         private BlockTableRecord _BTR;
+        #endregion
 
         #region Drawing Methods
         public void DrawColumn(BlockTableRecord btr, Point3d basePoint, ColumnDrawInputArgs inputArgs)

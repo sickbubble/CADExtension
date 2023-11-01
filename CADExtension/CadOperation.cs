@@ -4,12 +4,12 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
 using Application = Autodesk.AutoCAD.ApplicationServices.Application;
-using GeometryLib.Factories;
 using GeometryLib.Entities;
 using System.Collections.Generic;
 using InputUI;
 using System.Windows.Forms;
 using System.Linq;
+using DrawingLib.Factories;
 
 namespace CADExtension
 {

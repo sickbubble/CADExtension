@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeometryLib
+namespace DrawingLib
 {
     public class ColumnDrawInputArgs
     {
@@ -12,7 +12,6 @@ namespace GeometryLib
         {
 
         }
-
 
         private double _SectionWidth;
         private double _SectionHeight;

@@ -30,7 +30,6 @@ C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\bin\Debug\en-US\AcCus
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\bin\Debug\en-US\AppHomeInterop.resources.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\bin\Debug\en-US\AcMr.resources.dll
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\bin\Debug\en-US\AcWindows.resources.dll
-C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Debug\DrawingLib.csproj.AssemblyReference.cache
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Debug\DrawingLib.csproj.CoreCompileInputs.cache
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Debug\DrawingLib.csproj.CopyComplete
 C:\Users\Burak T\Desktop\Git Repos\CADExtension\DrawingLib\obj\Debug\DrawingLib.dll

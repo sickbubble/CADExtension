@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ColumnDrawInputArgs.cs" />
-    <Compile Include="Factories\ColumnDrawingFactory.cs" />
+    <Compile Include="Factories\ColumnDrawer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
